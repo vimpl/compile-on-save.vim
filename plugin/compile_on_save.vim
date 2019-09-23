@@ -2,7 +2,7 @@
 " Maintainer:   Marco Herrn <marco@mherrn.de>
 " Last Changed: 19. September 2019
 " URL:          http://github.com/hupfdule/compile-on-save.vim/
-" Version:      1.0.0
+" Version:      1.1.0
 " License:      MIT
 
 if exists("g:loaded_compile_on_save")

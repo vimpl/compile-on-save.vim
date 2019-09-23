@@ -20,7 +20,7 @@ function! compile_on_save#toggle(enable) " {{{1
     echo "CompileOnSave disabled"
   elseif a:enable ==# 1 ||
         \ (a:enable ==# 2 && !s:is_enabled())
-    autocmd BufWritePost <buffer> silent make %
+    autocmd BufWritePost <buffer> silent call s:make()
     let b:compile_on_save = 1
     echo "CompileOnSave enabled"
   else
@@ -35,6 +35,19 @@ endfunc " }}}
 " @returns 1 if the autocmd is enabled, otherwise 0
 function! s:is_enabled() abort " {{{1
   return exists("b:compile_on_save") && b:compile_on_save == 1
-endfunction
+endfunction " }}}
+
+"" {{{2
+" Execute the actual make command.
+" This checks for the existence of vim-dispatchs :Make command and uses
+" that to call :make in the background. Otherwise is just calls the builtin
+" :make.
+function! s:make() abort " {{{1
+  if exists(':Make') == 2
+    execute ':Make! %'
+  else
+    execute ':make %'
+  endif
+endfunction " }}}
 
 " vim: set foldmethod=marker :

@@ -37,6 +37,14 @@ nmap <F2> <Plug>(CompileOnSaveToggle)
 imap <F2> <C-o><Plug>(CompileOnSaveToggle)
 ----
 
+Complementary Plugins
+---------------------
+
+vim-dispatch::
+  If https://github.com/tpope/vim-dispatch[tpope/vim-dispatch] is installed
+  compile-on-save.vim will call `:Make!` instead of the builtin `:make` to
+  run in background.
+
 Inspiration
 -----------
 
