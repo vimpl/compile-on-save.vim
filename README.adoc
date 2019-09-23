@@ -1,0 +1,55 @@
+Compile on Save vim plugin
+==========================
+Marco Herrn <marco@mherrn.de>
+2019-09-19
+:experimental:
+:icons: font
+
+A vim plugin that registers a simple trigger to call ':make %' when a buffer is saved.
+
+Commands
+--------
+
+This plugin provides the following commands to enable or disable the
+compile-on-save trigger.
+
+[horizontal]
+CompileOnSave:: Enable the compile-on-save trigger.
+CompileOnSave!:: Disable the compile-on-save trigger.
+CompileOnSaveToggle:: Toggle the compile-on-save trigger.
+
+Those commands always operate only on the current buffer. Therefore you can
+toggle the compile-on-save feature independently for each buffer.
+
+As those commands will be called only infrequently there are no default
+mappings to call these. However the following `<Plug>` mappings are
+provided to create these mappings:
+
+<Plug>(CompileOnSave)::
+<Plug>(CompileOnSave!)::
+<Plug>(CompileOnSaveToggle)::
+
+You can map these e.g. to kbd:[F2] via
+
+[source]
+----
+nmap <F2> <Plug>(CompileOnSaveToggle)
+imap <F2> <C-o><Plug>(CompileOnSaveToggle)
+----
+
+Inspiration
+-----------
+
+The inspiration to this plugin came from
+https://github.com/jjaderberg/vim-ft-asciidoc[jjaderberg/vim-ft-asciidoc]
+which provides the same functionality for asciidoc files.
+The functionality of that plugin was integrated into
+https://github.com/hupfdule/vim-asciidoc-ng[hupfdule/vim-asciidoc-ng], but
+since this functionality is in no way restricted to asciidoc files it was
+outsourced into this plugin.
+
+License
+-------
+
+This plugin is licensed under the terms of the
+http://opensource.org/licenses/MIT[MIT License].
