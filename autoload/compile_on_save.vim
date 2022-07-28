@@ -1,4 +1,4 @@
-"" {{{2
+""
 " Toggle compile-on-save.
 "
 " Registers or deregisters an autocmd to call 'make %' on each write of the
@@ -12,7 +12,7 @@
 "                     1 = enable
 "                     2 = toggle
 "
-function! compile_on_save#toggle(enable) " {{{1
+function! compile_on_save#toggle(enable)
   if a:enable ==# 0 ||
         \ (a:enable ==# 2 && s:is_enabled())
     autocmd! BufWritePost <buffer>
@@ -26,28 +26,28 @@ function! compile_on_save#toggle(enable) " {{{1
   else
     throw 'Unsupported parameter: enable=' . a:enable
   endif
-endfunc " }}}
+endfunc
 
-"" {{{2
+""
 " Checks whether the compile_on_save autocmd is currently enabled.
 " This is the case when the b:compile_on_save flag is set to 1
 "
 " @returns 1 if the autocmd is enabled, otherwise 0
-function! s:is_enabled() abort " {{{1
+function! s:is_enabled() abort
   return exists("b:compile_on_save") && b:compile_on_save == 1
-endfunction " }}}
+endfunction
 
-"" {{{2
+""
 " Execute the actual make command.
 " This checks for the existence of vim-dispatchs :Make command and uses
 " that to call :make in the background. Otherwise is just calls the builtin
 " :make.
-function! s:make() abort " {{{1
+function! s:make() abort
   if exists(':Make') == 2
     execute ':Make! %'
   else
     execute ':make %'
   endif
-endfunction " }}}
+endfunction
 
 " vim: set foldmethod=marker :

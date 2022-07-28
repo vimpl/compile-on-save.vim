@@ -5,7 +5,7 @@ Marco Herrn <marco@mherrn.de>
 :experimental:
 :icons: font
 
-A vim plugin that registers a simple trigger to call ':make %' when a buffer is saved.
+A vim plugin that registers a simple trigger to call `:make %` when a buffer is saved.
 
 Commands
 --------
